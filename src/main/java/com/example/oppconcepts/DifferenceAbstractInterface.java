@@ -29,10 +29,10 @@ public class DifferenceAbstractInterface {
 			System.out.println("Vegetable is dying");
 		}
 
-		// An interface can have default methods.
-		// IT ALLOWS THE ADDITION OF NEW METHODS TO AN INTERFACE WITHOUT CHANGING
-		// CLASSES THAT IMPLEMENTS THE INTERFACE.
-		// Default methods can be overridden.
+		 /*An interface can have default methods.
+		 IT ALLOWS THE ADDITION OF NEW METHODS TO AN INTERFACE WITHOUT CHANGING
+		 CLASSES THAT IMPLEMENTS THE INTERFACE.
+		 Default methods can be overridden.*/
 		default void grow() {
 			System.out.println("Vegetable is growing");
 		}

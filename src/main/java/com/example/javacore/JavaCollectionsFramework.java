@@ -8,24 +8,25 @@ public class JavaCollectionsFramework {
 	 * functions more like a library than a framework. It provides a set of
 	 * classes and interfaces that can be used by other classes.
 	 *
-	 * The collections interfaces are the following:
-	 * - Iterable
-	 * - Collection
-	 * - List
-	 * - Set
-	 * - Queue
-	 * - Deque
-	 * - SortedSet
+	 * The collections interface and their classes are the following:
 	 *
-	 * The collections classes are the following:
-	 * - ArrayList
-	 * - LinkedList
-	 * - Vector
-	 * - Stack
-	 * - PriorityQueue
-	 * - ArrayDeque
-	 * - TreeSet
-	 * - HashSet
-	 * - LinkedHashSet
+	 * => Collection
+	 *      -> List
+	 *          . ArrayList
+	 *          . Vector
+	 *          . LinkedList
+	 *      -> Queue
+	 *          . LinkedList
+	 *          . PriorityQueue
+	 *      -> Set
+	 *          . HashSet
+	 *          . LinkedHashSet
+	 *          -> SortedSet
+	 *              . TreeSet
+	 *      -> Map
+	 *          . HashTable
+	 *          . HashMap
+	 *          -> SortedMap
+	 *              . TreeMap
 	 */
 }
