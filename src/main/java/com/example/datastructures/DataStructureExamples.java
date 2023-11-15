@@ -5,11 +5,40 @@ import java.util.*;
 public class DataStructureExamples {
 
 	/*
+	 * Em Java, estruturas de dados são armazenamentos utilizados para guardar e
+	 * organizar dados com eficiência, bem como processá-los e recuperá-los.
+	 *
+	 * => Data Structures
+	 * 		-> Linear Data Structures (LDS)
+	 * 			-> Static Data Structure
+	 * 				>- Arrays (simple form)
+	 * 			-> Dynamic Data Structures
+	 * 				>- Queues
+	 * 				>- Stacks
+	 * 				>- Linked Lists
+	 * 		-> Non-linear Data Structures (NDS)
+	 * 			>- Trees
+	 * 			>- Graphs
+	 */
+
+	/*
 	 * Em estruturas de dados lineares (LDS), os elementos são organizados em
 	 * sequência, portanto, são facilmente acessados pela sua posição (index).
 	 */
 
-	// Nos arrays, objetos são armazenados em locais de memória adjacentes (contíguos)
+	// Estruturas de dados estáticas possuem tamanho de memória fixo, destarte, são
+	// mais rápidas durante o acesso dos objetos. O único exemplo dessa categoria
+	// são os arrays simples.
+	int[] num = new int[5]; // array tamanho 5
+	int[][] matrix = new int[5][5]; // matriz tamanho 5x5
+
+	// Todos os outros exemplos de LSD tratam-se de estrutruras de dados dinâmicas.
+	// Nesse tipo de estrutura o tamanho não é fixo, e pode ser alterado durante
+	// runtime da aplicação, o que pode ser considerado eficiente no que se diz respeito
+	// à complexidade de memória do código.
+
+	// Nos Arrays (collection framework), objetos são armazenados em locais de memória
+	// adjacentes (ou contíguos)
 	Collection<Object> colecao = new ArrayList<>();
 	List<Object> lista = new ArrayList<>();
 
@@ -47,6 +76,10 @@ public class DataStructureExamples {
 	// Nos HashSets, elementos são armazenados de maneira não ordenada em pares de
 	// chave (hash) e valor (objeto). NÃO são permitidos objetos duplicados.
 	Set<String> hashSet = new HashSet<>();
+
+	// Nos HashMaps, elementos são armazenados de maneira não ordenada em pares de
+	// chave (objeto) e valor (objeto). SÃO permitidos objetos duplicados.
+	Map<String, String> hashMap = new HashMap();
 
 	// Nos LinkedHashSets, objetos são armazenados na ordem em que foram inseridos.
 	Set<String> linkedHashSet = new LinkedHashSet<>();
