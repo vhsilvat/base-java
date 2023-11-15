@@ -17,7 +17,7 @@ public class UnitTests {
 	public void testAdd() {
 
 		// Arrange
-		int a = 1
+		int a = 1;
 		int b = 2;
 		int expected = 3;
 

@@ -1,4 +1,4 @@
-package com.example.javacore;
+package com.example.hashtypes;
 
 import java.util.ArrayList;
 import java.util.HashMap;

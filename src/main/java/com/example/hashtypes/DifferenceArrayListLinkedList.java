@@ -1,4 +1,4 @@
-package com.example.datastructures;
+package com.example.hashtypes;
 
 public class DifferenceArrayListLinkedList {
 

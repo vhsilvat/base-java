@@ -5,38 +5,55 @@ import java.util.*;
 public class DataStructureExamples {
 
 	/*
-	 * In Linear Data Structures (LDS), elements are arranged in a sequence.
-	 * As the elements are organized in a specific sequence, they are easily
-	 * accessed by their position.
+	 * Em estruturas de dados lineares (LDS), os elementos são organizados em
+	 * sequência, portanto, são facilmente acessados pela sua posição (index).
 	 */
 
-	// In arrays, elements are stored in contiguous (adjacent) memory locations.
-	ArrayList<String> list = new ArrayList<String>();
+	// Nos arrays, objetos são armazenados em locais de memória adjacentes (contíguos)
+	Collection<Object> colecao = new ArrayList<>();
+	List<Object> lista = new ArrayList<>();
 
-	// In stacks, elements are arranged in a LIFO (last-in-first-out) manner.
-	// In other words, the last element added to the stack is the first element.
-	Stack<String> stack = new Stack<String>();
+	// Nos linked lists, elementos são armazenados em nodos. Cada nodo contém objetos
+	// e uma referência para o próximo nodo. Geralmente um nodo é composto de duas
+	// partes: um campo de dados e uma referência ao próximo nó.
+	List<Object> linkedList = new LinkedList<>();
 
-	// In queues, elements are arranged in a FIFO (first-in-first-out) manner.
-	// In other words, the first element added to the queue is the first element.
-	AbstractQueue<String> queue;
+	// Nos vectors, bem, como nos arrays, objetos são armazenados de forma adjacente,
+	// com a diferença de que vectors são sincronizados (thread-safe) e mais lentos.
+	List<Object> vector = new Vector<>();
 
-	// In linked lists, elements are stored as nodes. Each node contains the
-	// data and a reference to the next node. Generally, a node is made up of
-	// two parts: a data field and a reference to the next node.
-	LinkedList<String> linkedList = new LinkedList<String>();
+	// Nos stacks, elementos são organizados de maneira LIFO (last in, first out)
+	// Em outras palavras, o último elemento adicionado à pilha é removido primeiro.
+	List<Object> stack = new Stack<>();
+
+	// Nos queues, elementos são organizados de maneira FIFO (first in, fist out)
+	// Em outras palavras, o primeiro elemento adicionado à pilha é removido primeiro.
+	Queue<Object> queue = new PriorityQueue<>();
+
+	// Nos deques, elementos são organizados de maneira FIFO (first in, fist out)
+	// e LIFO (last in, first out) simultaneamente.
+	// Em outras palavras, permite a remoção de objetos em ambas as extremidades.
+	Deque<Object> arraydeque = new ArrayDeque<>();
+	Deque<Object> linkeddeque = new LinkedList<>();
+
 
 
 	/*
-	 * In Non-Linear Data Structures (NLD), elements are note in any particular
-	 * sequence. Rather, they are arranged in a tree-like structure, hierarchically
-	 * linked to each other.
+	 * Em estruturas de dados não lineares (NLD), os elementos não são armazenados
+	 * em nenhuma sequência específica. Ao invés disso, são organizados em uma
+	 * estrutura semelhante a uma árvore, hierarquicamente ligados entre si.
 	 */
 
-	// Graphs are collections of edges and vertices. They consist of a set of
-	// nodes called vertices, and vertices are connected by edges.
-	// Java does not provide a default implementation of the Graph data structure.
+	// Nos HashSets, elementos são armazenados de maneira não ordenada em pares de
+	// chave (hash) e valor (objeto). NÃO são permitidos objetos duplicados.
+	Set<String> hashSet = new HashSet<>();
 
-	// Trees are also collections of edges and vertices, but they allow only one
-	// edge between any two vertices.
+	// Nos LinkedHashSets, objetos são armazenados na ordem em que foram inseridos.
+	Set<String> linkedHashSet = new LinkedHashSet<>();
+
+	// Nos TreeSets, objetos são armazenados na sua ordem natural (numérica
+	// crescente ou alfabética).
+	SortedSet<String> treeSet = new TreeSet<>();
+
+
 }
