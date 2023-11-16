@@ -3,81 +3,84 @@ package com.example.oppconcepts;
 public class AbstractionExample {
 
 	/*
-	 * Abstraction is a process of hiding the implementation details of a class
-	 * while providing essential features.
+	 * Abstração é um processo de ocultar os detalhes de implementação de uma
+	 * classe e, simultaneamente, fornecer recursos essenciais para a utilização
+	 * da mesma. Na orientação a objetos, a abstração é obtida através da criação
+	 * de interfaces e classes abstratas.
 	 */
 
 	/*
-	 * The abstract keyword is used to define an abstract class. An abstract
-	 * class may contain abstract methods and fields, and may contain
-	 * concrete methods or fields.
+	 * INTERFACES SÃO CONTRATOS QUE DEFINEM O COMPORTAMENTO DE MÚLTIPLOS OBJETOS
+	 * NÃO RELACIONADOS. É uma concha vazia, por assim dizer.
 	 *
-	 * This class can never be instantiated and can only be extended.
-	 * Objects of abstract classes cannot be created. The subclasses of an
-	 * abstract class usually implement the abstract methods of the superclass.
+	 * Existem apenas assinaturas de métodos nas interfaces.
 	 *
-	 * Abstract methods can only be declared in an abstract class, and they
-	 * do not have a body.
+	 * Interfaces não podem ser instanciadas e não podem fazer nada se não forem
+	 * implementadas, usando pouca memória e CPU.
+	 *
+	 * Todas as interfaces DEVEM ser PÚBLICAS. Não é possível realizar overloading
+	 * (conceito de polimorfismo) em interfaces.
 	 */
 
-	abstract static class AbstractClassExample {
-
-		abstract void abstractMethod();
-
-		void concreteMethod() {
-			System.out.println("Concrete method");
+	public interface Vegetal {
+		// Uma interface em Java pode conter variáveis;
+		int altura = 10;
+		// Uma interface pode conter métodos que devem ser implementados.
+		void semear();
+		/* Uma interface pode conter métodos static. Esses métodos podem ser
+		chamados sem a necessidade da criação de um objeto. Métodos estáticos
+		não podem ser sobrescritos (overridden, conceito de polimorfismo) */
+		static void morrer() {
+			System.out.println("O vegetal morreu.");
+		}
+		/* Uma interface pode conter métodos default. Esses métodos permitem
+		a adição de novos métodos em uma interface sem alterar as outras classes
+		que a implementam. Métodos default podem ser sobrescritos (overridden). */
+		default void crescer() {
+			System.out.println("O vegetal está crescendo.");
 		}
 	}
 
 	/*
-	 * The abstract class can be extended by a class that implements the abstract
-	 * methods of the abstract class.
+	 * CLASSES ABSTRATAS DEFINEM REGRAS E COMPORTAMENTOS ENTRE MÚLTIPLOS OBJETOS
+	 * RELACIONADOS.
+	 *
+	 * Uma classe abstrata pode conter métodos e variáveis abstratos, como também
+	 * métodos ou variáveis concretas.
+	 *
+	 * Essa classe nunca pode ser instanciada e só pode ser estendida. Objetos de
+	 * classes abstratas não podem ser criados. As subclasses de uma classe abstrata
+	 * geralmente implementam os métodos abstratos da superclasse.
+	 *
+	 * Métodos abstratos
+	 * só podem ser declarados em uma classe abstrata e não possuem corpo.
 	 */
 
-	static class AbstractClassExampleImpl extends AbstractClassExample {
+	abstract static class Arvore {
+		// Métodos abstratos devem sem implementados nas subclasses.
+		public abstract void galhos();
+		// Métodos privados não podem ser sobrescritos (overridden).
+		void cair() {
+			System.out.println("A árvore está caindo");
+		}
+	}
 
+	static class Jacaranda extends Arvore implements Vegetal {
+		// Implementando o método abstrato da superclasse
 		@Override
-		void abstractMethod() {
-			System.out.println("Abstract method implementation");
+		public void galhos() {
+			System.out.println("Jacarandá possui galhos");
 		}
-	}
-
-	static class RandomClass {
-		void soutMethod() {
-			System.out.println("Random class");
+		// Implementando o método da interface
+		@Override
+		public void semear() {
+			System.out.println("Jacarandá está semeando");
 		}
-	}
-
-	public static void main(String[] args) {
-
-		// Although the abstract class appear to be instantiable here, it is
-		// a run time anonymous subclass of the abstract class.
-		AbstractClassExample a = new AbstractClassExample() {
-			@Override
-			void abstractMethod() {
-				System.out.println("Abstract method from anonymous subclass");
-			}
-		};
-
-		AbstractClassExampleImpl b = new AbstractClassExampleImpl() {
-			@Override
-			void abstractMethod() {
-				System.out.println("Abstract method from subclass implementation");
-			}
-		};
-
-		RandomClass c = new RandomClass();
-
-		System.out.println("Name of the anonymous class: " + a.getClass().getName());
-		a.abstractMethod();
-		a.concreteMethod();
-
-		System.out.println("Name of the subclass implementation: " + b.getClass().getName());
-		b.abstractMethod();
-		b.concreteMethod();
-
-		// To prove that the other two classes were anonymous subclasses of the abstract superclass
-		System.out.println("Name of the random class: " + c.getClass().getName());
+		// Métodos default da interface podem ser sobrescritos
+		@Override
+		public void crescer() {
+			System.out.println("O Jacarandá está crescendo.");
+		}
 	}
 
 }
