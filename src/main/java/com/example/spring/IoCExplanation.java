@@ -3,27 +3,75 @@ package com.example.spring;
 public class IoCExplanation {
 
 	/*
-	 * WHAT IT IS?
-	 * IoC refers to transferring of the control of objects and their dependencies
-	 * from the client (main program) to the container or framework.
-	 * It's a design principle, not a design pattern or a programming language
-	 * feature.
-	 * Spring framework is a example of an IoC container that manages the lifecycle
-	 * of objects and their dependencies through XML configs, Java Annotations or
-	 * Java code.
+	 * O QUE É INVERSÃO DE CONTROLE?
+	 * Refere-se à transferência do controle de objetos e suas
+	 * dependências do cliente (programa principal) para o contâiner ou framework. É
+	 * um princípio de design, não um padrão de design ou um recurso de linguagem de
+	 * programação.
 	 *
-	 * WHAT IS DEPENDENCY INJECTION?
-	 * Dependency Injection is a design principle that allows us to decouple the
-	 * dependencies of a class from the class itself. It's a kind of implementation
-	 * of the IoC concept.
+	 * Spring framework é um exemplo de contâiner IoC que gerencia o ciclo de vida de
+	 * objetos e suas dependências por meio de anotações ou código Java.
 	 *
-	 * HOW IT WORKS?
-	 * Instead of creating objects inside other object with the new keyword, we can
-	 * inject an object through the constructor of other class or setter method.
+	 * O QUE É INJEÇÃO DE DEPENDÊNCIA?
+	 * Trata-se de um princípio de design (parte do SOLID) que nos permite dissociar
+	 * as dependências de uma classe da própria classe. É uma espécie de implementação
+	 * do conceito IoC.
 	 *
-	 * WHY DO WE NEED IOC?
-	 * It reduces and simplifies the code, it makes the code more readable and
-	 * maintainable, and it makes the code more testable (because it decouples the
-	 * dependencies from the code).
+	 * COMO FUNCIONA?
+	 * Ao invés de criar objetos dentro de outro objeto com a palavra-chave new, podemos
+	 * injetar um objeto através do construtor de outra classe ou método setter.
+	 *
+	 * POR QUE PRECISAMOS DA INVERSÃO DE CONTROLE?
+	 * Reduz e simplifica o código, torna o código mais legível e de fácil manutenção
+	 * e torna o código mais testável (porque separa as dependências do código).
 	 */
+
+	static class Funcionario {
+
+		int id;
+		String nome;
+		Endereco endereco;
+
+		// ALTA DEPENDÊNCIA E ACOPLAMENTO DE CÓDIGO
+		Funcionario() {
+			id = 0;
+			nome = "Foo";
+			endereco = new Endereco();
+		}
+
+		// BAIXA DEPENDÊNCIA E ACOPLAMENTO DE CÓDIGO
+		Funcionario(Endereco endereco) {
+			id = 0;
+			nome = "Foo";
+			this.endereco = endereco;
+		}
+
+		void setAdress(Endereco endereco) {
+			this.endereco = endereco;
+		}
+	}
+
+	static class Endereco {
+		String rua;
+		String cidade;
+		String estado;
+		String cep;
+	}
+
+	public static void main(String[] args) {
+
+		// Injeção de dependência
+		// Melhor para lidar com muitas dependências
+		Endereco endereco = new Endereco();
+		Funcionario emp = new Funcionario(endereco);
+
+		// Injeção do setter
+		// Melhor para lidar com poucas dependências
+		Funcionario func = new Funcionario();
+		func.setAdress(endereco);
+
+		/*
+		 * Autowiring no spring permite a injeção de beans automaticamente.
+		 */
+	}
 }
