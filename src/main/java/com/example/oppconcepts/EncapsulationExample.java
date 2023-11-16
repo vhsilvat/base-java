@@ -6,7 +6,7 @@ public class EncapsulationExample {
 	 * Encapsulamento é o processo de agrupar os dados e métodos para ocultar os
 	 * dados armazenados em classes. Isso ajuda a evitar que os dados sejam acessados
 	 * ou modificados por outras classes de maneira indesejada. O encapsulamento é
-	 * obtido através do uso de modificadores de acesso
+	 * obtido através do uso de modificadores de acesso como private, public, and protected.
 	 *
 	 * 		- Tornando os campos (parâmetros) privados;
 	 * 		- Tornando públicos os métodos getters e setters;

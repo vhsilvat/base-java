@@ -3,14 +3,37 @@ package com.example.oppconcepts;
 public class InheritanceExample {
 
 	/*
-	 * Inheritance is a mechanism in which one class acquires the properties of
-	 * another class. This is achieved by the use of the extends keyword.
+	 * Herança é um mecanismo no qual uma classe adquire as propriedades de outra
+	 * classe. Isto é conseguido através do uso da palavra-chave "extends".
 	 *
-	 * It enables code reusability and promotes code modularity.
+	 * Isso permite a reutilização de código, declarando características comuns
+	 * entre as subclasses herdadoras promovendo assim a modularidade do código, bem
+	 * como ajudando a criar uma estrutura hierárquica entre classes.
 	 *
-	 * Inheritance is a type of polymorphism.
-	 *
-	 * Is used to declare characteristics of classes inheriting, without having to
-	 * write the code again.
+	 * A herança é uma espécie de polimorfismo.
 	 */
+
+	public static class Animal {
+		protected String especies;
+
+		public Animal(String especies) { this.especies = especies; }
+
+		public void fazBarulho() {
+			System.out.println("O " + especies + " faz barulho.");
+		}
+	}
+
+	public static class Cachorro extends Animal {
+		public Cachorro() { super("cachorro doméstico"); }
+
+		public void balancaRabo() {
+			System.out.println("O cachorro balança o rabo.");
+		}
+	}
+
+	public static void main(String[] args) {
+		Cachorro cachorro = new Cachorro();
+		cachorro.fazBarulho(); // Output: O cachorro doméstico faz barulho.
+		cachorro.balancaRabo();  // Output: O cachorro balança o rabo.
+	}
 }
