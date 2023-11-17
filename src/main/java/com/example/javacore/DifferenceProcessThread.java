@@ -3,33 +3,34 @@ package com.example.javacore;
 public class DifferenceProcessThread {
 
 	/*
-	 * PROCESS IS A RUNNING INSTANCE OF THE PROGRAM OVER THE OS.
+	 * O PROCESSO É UMA INSTÂNCIA EM EXECUÇÃO DO PROGRAMA NO SO.
 	 *
-	 * Processes are an executing instance of a program, running in separete
-	 * memory spaces.
+	 * Processos são instâncias de execução de um programa, executadas em espaços de
+	 * memória separados.
 	 *
-	 * They must use inter-process communication (IPC) to communicate with each other.
+	 * Eles devem comunicação entre processos (inter-process communication - IPC) para
+	 * se comunicarem entre si.
 	 *
-	 * Processes can only exercise control over child processes.
+	 * Processos só podem exercer Controle sobre processos filhos.
 	 *
-	 * Any change in the parent process does not affect child processes.
+	 * Qualquer alteração no processo pai não afeta os processos filhos.
 	 *
-	 * Processes are controlled by the operating system and are independent of each other.
+	 * Processos são controlados pelo sistema operacional e são independentes uns dos
+	 * outros.
 	 */
 
 	/*
-	 * THREADS ARE RUNNING WITHIN THE PROCESS.
+	 * THREADS ESTÃO RODANDO DENTRO DOS PROCESSOS.
 	 *
-	 * Threads are subsets of the process, running in shared memory spaces.
+	 * Threads são subconjuntos do processo, executados em espaços de memória compartilhada.
 	 *
-	 * They can directly communicate with each other.
+	 * Eles podem se comunicar entre si.
 	 *
-	 * Threads can exercise considerable control over other threads in the same
-	 * process.
+	 * Threads podem exercer controle considerável sobre outras threads no mesmo processo.
 	 *
-	 * Any change in the main thread may affect other threads.
+	 * Qualquer alteração na main thread poderá afetar outros tópicos.
 	 *
-	 * Threads are controlled by the programmer, inside an application/program, and
-	 * they are dependent on each other.
+	 * Threads são controladas pelo programador, numa aplicação/programa, e dependem uns
+	 * dos outros, pro seu funcionamento.
 	 */
 }

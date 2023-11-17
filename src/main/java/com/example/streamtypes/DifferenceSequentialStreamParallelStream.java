@@ -2,7 +2,7 @@ package com.example.streamtypes;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class DifferenceSequentialStreamParallelStream {
 
@@ -16,7 +16,7 @@ public class DifferenceSequentialStreamParallelStream {
 	 * resultado do processamento dos dados por métodos em pipeline.
 	 */
 
-	static class SequentialStreamExample {
+	static class StreamExample {
 
 		List<String> list = Arrays.asList("hello", "again",
 				"v", "i", "c", "t", "o", "r");
@@ -25,7 +25,8 @@ public class DifferenceSequentialStreamParallelStream {
 
 	public static void main(String[] args) {
 
-		SequentialStreamExample sequentialStreamExample = new SequentialStreamExample();
+		StreamExample streamExample = new StreamExample();
+		AtomicInteger objetoAtomico = new AtomicInteger(0);
 
 
 		/*
@@ -36,11 +37,11 @@ public class DifferenceSequentialStreamParallelStream {
 		 * processo, mesmo que o sistema subjacente suporte várias threads.
 		 * Consequentemente, ele não se aproveita de sistemas multi-core.
 		 */
-		sequentialStreamExample.list.stream()
+		streamExample.list.stream()
 				.filter(s -> s.length() <= 1)
 				.forEach(System.out :: println);
 
-		sequentialStreamExample.list.stream()
+		streamExample.list.stream()
 				.filter(s -> s.length() > 1)
 				.map(String :: toUpperCase)
 				.sorted()
@@ -58,14 +59,31 @@ public class DifferenceSequentialStreamParallelStream {
 		 * parallel programs, they are complex and error-prone.
 		 */
 
-		sequentialStreamExample.list.parallelStream()
+		streamExample.list.parallelStream()
 				.filter(s -> s.length() <= 1)
 				.forEach(System.out :: println);
 
-		sequentialStreamExample.list.parallelStream()
+		streamExample.list.parallelStream()
 				.filter(s -> s.length() > 1)
 				.map(String :: toUpperCase)
 				.sorted()
-				.forEach(System.out :: println);
+				.forEachOrdered(System.out :: println);
+
+		/*
+		 * No exemplo abaixo, um objeto atômico sendo usado em conjunto com um fluxo
+		 * paralelo para contar o número total de elementos processados. O método
+		 * "getAndIncrement()" do AtomicInteger é usado para realizar uma operação
+		 * de incremento de forma atômica, garantindo que a operação seja thread-safe.
+		 * Isso é especialmente importante ao lidar com operações concorrentes em
+		 * ambientes multi-thread.
+		 */
+
+		streamExample.list.parallelStream()
+				.forEach(s -> {
+					objetoAtomico.getAndIncrement();
+					System.out.println(s + " processado pela thread: "
+							+ Thread.currentThread().getName());
+				});
+		System.out.println("Total de elementos processados: " + objetoAtomico.get());
 	}
 }
