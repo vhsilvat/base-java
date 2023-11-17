@@ -7,13 +7,13 @@ import java.util.stream.*;
 public class DifferenceSequentialStreamParallelStream {
 
 	/*
-	 * Streams are used to process data in a sequential manner on collections
-	 * of objects. They are wrappers around data sources, allowing complex processing
-	 * convenient and efficient.
+	 * Streams são usados para processar dados de maneira sequencial em coleções
+	 * de objetos. Eles são wrappers em torno de fontes de dados, permitindo
+	 * processamento complexo, conveniente e eficiente.
 	 *
-	 * Streams DOES NOT store data, and in that sense, is not a data structure.
-	 * Streams also does not change the original data, but rather provide the result
-	 * of processing the data per pipelined methods.
+	 * Streams NÃO armazenam dados e, nesse sentido, também não são uma estrutura
+	 * de dados. Streams também não alteram os dados originais, mas fornecem o
+	 * resultado do processamento dos dados por métodos em pipeline.
 	 */
 
 	static class SequentialStreamExample {
@@ -29,13 +29,12 @@ public class DifferenceSequentialStreamParallelStream {
 
 
 		/*
-		 * The sequential stream uses a single thread to process the pipelining.
-		 * Any stream operation without explicitly specified "parallel" name is
-		 * single threaded.
+		 * O fluxo sequencial usa uma única thread para processa o pipeline. Qualquer
+		 * operação de fluxo sem nome "paralelo" explicitamente é single-thread.
 		 *
-		 * Objects from sequencial streams are pipelined in a single stream on the same
-		 * process, even if the underlying system supports multiple threads. Hence, it
-		 * doesn't take advantage of multi-core systems.
+		 * Objetos de fluxos sequenciais são canalizados em um único fluxo no mesmo
+		 * processo, mesmo que o sistema subjacente suporte várias threads.
+		 * Consequentemente, ele não se aproveita de sistemas multi-core.
 		 */
 		sequentialStreamExample.list.stream()
 				.filter(s -> s.length() <= 1)
@@ -48,12 +47,12 @@ public class DifferenceSequentialStreamParallelStream {
 				.forEach(System.out :: println);
 
 		/*
-		 * The parallel stream uses multiple threads to process the pipelining, even
-		 * if the whole program does not use multi-core processors.
+		 * O fluxo paralelo usa várias threads para processar o pipeline, mesmo que
+		 * o programa não use processadores multicore.
 		 *
-		 * Using parallel streams, the data processing gets divided into multiple
-		 * streams, which are processed on separete cores of the processor. The final
-		 * result is the concatenation of all the streams.
+		 * Usando fluxos paralelos, o processamento de dados é dividido em vários
+		 * fluxos, processados em núcleos separados pelo processador. O resultado
+		 * é a concatenação de todos os fluxos.
 		 *
 		 * The order of the elements in the stream is not guaranteed. Like other
 		 * parallel programs, they are complex and error-prone.
