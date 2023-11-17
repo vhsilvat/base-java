@@ -3,9 +3,10 @@ package com.example.finalkeywords;
 public class Finalize {
 
 	/*
-	 * The finalize() method is called when the garbage collector determines that
-	 * an object is no longer in use. It is a destructor method that is called
-	 * automatically.
+	 * O método finalize() é chamado quando o coletor de lixo determina que um objeto
+	 * não está mais em uso. É um método destruidor chamado automaticamente.
+	 * Apesar de ser possível chamar o método, é recomendado deixar com que o próprio
+	 * Java se encarregue de chamar o GC para limpar objetos não mais utilizados.
 	 */
 
 	static class FinalizeExample {

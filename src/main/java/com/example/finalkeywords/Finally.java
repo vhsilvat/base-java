@@ -3,10 +3,10 @@ package com.example.finalkeywords;
 public class Finally {
 
 	/*
-	 * The finally keyword is used to define a block of code to be executed,
-	 * Is used in conjunction with try-catch blocks and ensures that a section
-	 * of code is executed, even if an exception is thrown. It executes important
-	 * cleanup code, such as closing a file, releasing a lock, or closing a socket.
+	 * A palavra-chave finally()é usada para definir um bloco de código a ser executado.
+	 * É usada em conjuntos com bloco try-catch e garante que uma seção de código
+	 * seja executada, mesmo se uma execução for lançada. Ele executa códigos de limpeza
+	 * importantes, como fechar um arquivo, liberar um bloqueio ou fechar um soquete.
 	 */
 
 	public static void main(String[] args) {
